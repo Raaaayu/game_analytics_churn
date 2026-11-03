@@ -1,0 +1,2 @@
+first_day,last_day,min_events_per_day,max_events_per_day,min_users_per_day,max_users_per_day,avg_users_per_day
+20180612,20181003,50000,50000,346,1283,518

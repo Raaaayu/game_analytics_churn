@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Notatki prywatne (nie do repozytorium)
+dziennik_projektu.md
