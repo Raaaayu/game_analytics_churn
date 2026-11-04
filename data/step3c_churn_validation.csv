@@ -1,0 +1,3 @@
+churn_status,players,players_with_app_remove,pct_app_remove
+churned,2373,1384,58.3
+still_active,540,148,27.4

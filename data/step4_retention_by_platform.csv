@@ -1,0 +1,4 @@
+platform_group,cohort_players,d1_eligible,d1_retention_pct,d7_eligible,d7_retention_pct,d30_eligible,d30_retention_pct
+ALL,4307,4239,19.5,3986,5.3,2955,1.9
+ANDROID,2913,2851,19.7,2670,5.5,2160,1.8
+IOS,1394,1388,18.9,1316,5,795,2.3
