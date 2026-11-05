@@ -3,3 +3,7 @@ db-dtypes
 pandas
 pyarrow
 python-dotenv
+statsmodels
+ipykernel
+scikit-learn
+matplotlib

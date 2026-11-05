@@ -24,7 +24,7 @@ from google.cloud import bigquery
 PROJECT_DIR = Path(__file__).parent
 SQL_DIR = PROJECT_DIR / "sql"
 DATA_DIR = PROJECT_DIR / "data"
-MAX_BYTES = 1_000_000_000                       # bezpiecznik: 1 GB na zapytanie
+MAX_BYTES = 2_000_000_000                       # bezpiecznik: 2 GB na zapytanie (zapytania z event_params ~1,1 GB)
 
 load_dotenv(PROJECT_DIR / ".env")               # wczytuje zmienne z .env do os.environ
 PROJECT_ID = os.getenv("GCP_PROJECT_ID")
