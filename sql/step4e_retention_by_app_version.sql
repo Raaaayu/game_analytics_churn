@@ -1,8 +1,15 @@
 -- Krok 4e: retencja D1 według wersji gry w dniu instalacji
 -- Cel:     sprawdzić, czy spadek retencji od 27.08 zbiega się z nową wersją gry
 --          (trop: gra) czy wersje mają podobne D1 (trop: źródło pozyskania graczy).
--- Wynik:   (do uzupełnienia po uruchomieniu)
--- Decyzja: (do uzupełnienia)
+-- Wynik:   data/step4e_retention_by_app_version.csv. 25 wersji, istotne cztery:
+--            2.62:   2 840 graczy, 12.06–03.10 (1 885 przed / 955 od 27.08), D1 20,0% ±1,5 pp
+--            2.6.31:   998 graczy, 16.07–03.10 (354 / 644), D1 17,2% ±2,4 pp
+--            2.6.30:   307 graczy, 12.06–25.09 (299 / 8), D1 29,0% ±5,2 pp
+--            2.63:      55 graczy, od 28.09, D1 0 z 29
+--          Dwa schematy numeracji (2.62/2.63 i 2.6.x), prawdopodobnie dwie platformy (do sprawdzenia).
+-- Decyzja: ok. 27.08 nie pojawiła się nowa wersja, a główna wersja 2.62 była instalowana przez cały
+--          okres, więc nowa wersja nie wyjaśnia spadku. Następnie: D1 w układzie wersja × okres.
+--          Wersji < ~50 graczy nie interpretuję (margines dla 0% / 100% wychodzi mylnie 0).
 
 WITH cohort AS (
   -- gracze z first_open w dniu pierwszego pojawienia się (4 307); dzień 0 = data first_open

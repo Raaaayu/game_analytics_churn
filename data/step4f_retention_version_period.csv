@@ -1,0 +1,8 @@
+install_version,platform,cohort_period,players,d1_eligible,d1_retained,d1_retention_pct,d1_margin_pp,d1_change_pp,d1_change_margin_pp,d1_change_significant
+2.6.30,IOS,1_do_2018-08-26,299,299,86,28.8,5.2,,,
+2.6.30,IOS,2_od_2018-08-27,8,8,3,37.5,34.2,8.7,34.6,False
+2.6.31,IOS,1_do_2018-08-26,354,354,74,20.9,4.3,,,
+2.6.31,IOS,2_od_2018-08-27,644,639,97,15.2,2.8,-5.7,5.2,True
+2.62,ANDROID,1_do_2018-08-26,1885,1885,439,23.3,1.9,,,
+2.62,ANDROID,2_od_2018-08-27,955,919,123,13.4,2.2,-9.9,3.0,True
+2.63,ANDROID,2_od_2018-08-27,55,29,0,0.0,0.0,,,

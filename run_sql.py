@@ -9,6 +9,7 @@ Uruchomienie (z folderu projektu, z aktywnym .venv):
 * Wynik sql/<nazwa>.sql trafia do data/<nazwa>.csv (istniejący plik zostaje nadpisany).
 * Przed wykonaniem robi darmowy dry run i pokazuje, ile danych przetworzy zapytanie.
 * Bezpiecznik: zapytanie, które przetworzyłoby więcej niż MAX_BYTES, zostanie odrzucone przez BigQuery.
+* Przy błędzie BigQuery pokazuje jedną linijkę z komunikatem (zamiast tracebacku) i przechodzi do kolejnego zapytania.
 * ID projektu GCP jest w .env (GCP_PROJECT_ID); logowanie przez `gcloud auth application-default login`.
 """
 import os
@@ -16,6 +17,8 @@ import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
+from google.api_core.exceptions import GoogleAPICallError
+from google.auth.exceptions import RefreshError
 from google.cloud import bigquery
 
 PROJECT_DIR = Path(__file__).parent
@@ -63,6 +66,21 @@ if __name__ == "__main__":
         sys.exit("Podaj nazwę zapytania, np.: python run_sql.py step4c_retention_two_periods")
 
     DATA_DIR.mkdir(exist_ok=True)
+    failed = []
     for name in sys.argv[1:]:
-        result = run_sql_file(resolve_sql_path(name))
+        sql_path = resolve_sql_path(name)
+        try:
+            result = run_sql_file(sql_path)
+        except GoogleAPICallError as error:
+            # Błąd zwrócony przez BigQuery (składnia SQL, brak dostępu, przekroczony limit):
+            # zamiast długiego tracebacku pokazujemy sam komunikat, a w nim wiersz i kolumnę [wiersz:kolumna]
+            message = error.errors[0]["message"] if error.errors else error.message
+            print(f"{sql_path.name}: BŁĄD BigQuery: {message}\n")
+            failed.append(sql_path.name)
+            continue
+        except RefreshError:
+            sys.exit("Logowanie wygasło. Uruchom: gcloud auth application-default login")
         print(result.head(20).to_string(index=False), end="\n\n")
+
+    if failed:
+        sys.exit(f"Nieudane zapytania: {', '.join(failed)}")

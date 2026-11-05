@@ -1,0 +1,15 @@
+ts_source,ts_medium,ts_campaign,cohort_period,players,pct_of_period
+(direct),(none),(direct),1_do_2018-08-26,1616,62.0
+(direct),(none),(direct),2_od_2018-08-27,1275,74.9
+(null),(null),(null),1_do_2018-08-26,23,0.9
+(null),(null),(null),2_od_2018-08-27,12,0.7
+Google,cpc,spring_sale,2_od_2018-08-27,1,0.1
+firebase,dynamic_link,(null),1_do_2018-08-26,2,0.1
+google,organic,(null),1_do_2018-08-26,14,0.5
+google,organic,(null),2_od_2018-08-27,2,0.1
+google-play,organic,(direct),1_do_2018-08-26,2,0.1
+google-play,organic,(null),1_do_2018-08-26,941,36.1
+google-play,organic,(null),2_od_2018-08-27,405,23.8
+invite_a_friend,invite_a_friend_campaign,(null),2_od_2018-08-27,1,0.1
+invite_a_friend,invite_a_friend_campaign,Invite a Friend,1_do_2018-08-26,7,0.3
+invite_a_friend,invite_a_friend_campaign,Invite a Friend,2_od_2018-08-27,6,0.4
